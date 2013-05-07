@@ -13,13 +13,13 @@ class Field:
 	danger = 0
 
 	def get_x(self):
-		return x	
+		return self.x	
 
 	def get_y(self):
-		return y
+		return self.y
 
 	def get_danger(self):
-		return danger
+		return self.danger
 
 	def draw(self, main):
 		if self.danger == 0:
