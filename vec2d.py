@@ -6,7 +6,7 @@ class vec2d(object):
 		and also provides a bunch of high level functions
 		"""
 	__slots__ = ['x', 'y']
- 
+
 	def __init__(self, x_or_pair, y = None):
 		if y == None:
 			self.x = x_or_pair[0]
@@ -14,10 +14,10 @@ class vec2d(object):
 		else:
 			self.x = x_or_pair
 			self.y = y
- 
+
 	def __len__(self):
 		return 2
- 
+
 	def __getitem__(self, key):
 		if key == 0:
 			return self.x
@@ -25,7 +25,7 @@ class vec2d(object):
 			return self.y
 		else:
 			raise IndexError("Invalid subscript "+str(key)+" to vec2d")
- 
+
 	def __setitem__(self, key, value):
 		if key == 0:
 			self.x = value
@@ -33,7 +33,7 @@ class vec2d(object):
 			self.y = value
 		else:
 			raise IndexError("Invalid subscript "+str(key)+" to vec2d")
- 
+
 	# String representaion (for debugging)
 	def __repr__(self):
 		return 'vec2d(%s, %s)' % (self.x, self.y)
@@ -50,10 +50,10 @@ class vec2d(object):
 			return self.x != other[0] or self.y != other[1]
 		else:
 			return True
- 
+
 	def __nonzero__(self):
 		return self.x or self.y
- 
+
 	# Generic operator handlers
 	def _o2(self, other, f):
 		"Any two-operator operation where the left operand is a vec2d"
@@ -66,7 +66,7 @@ class vec2d(object):
 		else:
 			return vec2d(f(self.x, other),
 							f(self.y, other))
- 
+
 	def _r_o2(self, other, f):
 		"Any two-operator operation where the right operand is a vec2d"
 		if (hasattr(other, "__getitem__")):
@@ -85,7 +85,7 @@ class vec2d(object):
 			self.x = f(self.x, other)
 			self.y = f(self.y, other)
 		return self
- 
+
 	# Addition
 	def __add__(self, other):
 		if isinstance(other, vec2d):
@@ -134,7 +134,7 @@ class vec2d(object):
 			self.x -= other
 			self.y -= other
 		return self
- 
+
 	# Multiplication
 	def __mul__(self, other):
 		if isinstance(other, vec2d):
@@ -156,7 +156,7 @@ class vec2d(object):
 			self.x *= other
 			self.y *= other
 		return self
- 
+
 	# Division
 	def __div__(self, other):
 		return self._o2(other, operator.div)
