@@ -18,9 +18,6 @@ class Field:
 	def get_y(self):
 		return y
 
-	def get_player(self):
-		return player
-
 	def get_danger(self):
 		return danger
 

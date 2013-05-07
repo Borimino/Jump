@@ -33,7 +33,10 @@ class Starter(PygameHelper):
 		pass
 
 	def mouseDown(self, button, pos):
-		pass
+		for field in self.fields:
+			if pos[0] > field.get_x()*self.fieldsize and pos[0] < field.get_x()*self.fieldsize+self.fieldsize and pos[1] > field.get_y()*self.fieldsize and pos[1] < field.get_y()*self.fieldsize+self.fieldsize():
+				player = (field.get_x(), field.get_y())
+
 
 	def mouseUp(self, button, pos):
 		pass
