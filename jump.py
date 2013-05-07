@@ -13,9 +13,15 @@ class Starter(PygameHelper):
 	def update(self):
 		pass
         
+	def keyDown(self, key):
+		pass
+
 	def keyUp(self, key):
 		pass
         
+	def mouseDown(self, button, pos):
+		pass
+
 	def mouseUp(self, button, pos):
 		pass
         
