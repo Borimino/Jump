@@ -15,6 +15,7 @@ class Field:
 
 	danger = 0
 	available = 0
+	goal = False
 
 	def get_x(self):
 		return self.x	
@@ -26,19 +27,28 @@ class Field:
 		return self.danger
 
 	def is_danger(self, main):
+		if self.danger == 2:
+			return
 		for field in main.fields:
+			if field.x == self.x and field.y == self.y:
+				continue	
 			if (field.x - self.x) == (field.y - self.y):
 				if field.danger == 2:
-					self.danger == 1
-			if self.x - field.x == field.y - self.y:
+					self.danger = 1
+					return
+			if (self.x - field.x) == (field.y - self.y):
 				if field.danger == 2:
-					self.danger == 1
-			if field.x - self.x == self.y - field.y:
+					self.danger = 1
+					return
+			if (field.x - self.x) == (self.y - field.y):
 				if field.danger == 2:
-					self.danger == 1
-			if self.x - field.x == self.y - field.y:
+					self.danger = 1
+					return
+			if (self.x - field.x) == (self.y - field.y):
 				if field.danger == 2:
-					self.danger == 1
+					self.danger = 1
+					return
+		self.danger = 0
 
 	def draw(self, main):
 		if self.danger == 0:
@@ -50,7 +60,7 @@ class Field:
 			pygame.draw.rect(main.screen, main.color_danger, (self.x*main.fieldsize, self.y*main.fieldsize, main.fieldsize, main.fieldsize))
 			pygame.draw.rect(main.screen, main.color_outline, (self.x*main.fieldsize, self.y*main.fieldsize, main.fieldsize, main.fieldsize),1)
 		elif self.danger == 2:
-			pass
+			pygame.draw.rect(main.screen, main.color_bg, (self.x*main.fieldsize, self.y*main.fieldsize, main.fieldsize, main.fieldsize))
 		else:
 			pass
 	
